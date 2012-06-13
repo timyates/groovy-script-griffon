@@ -16,7 +16,7 @@ class GroovyScriptController {
 
   void groovyChanged( event ) {
     try {
-      def code = new AstNodeToScriptAdapter().compileToScript( model.groovyCode, CompilePhase.SEMANTIC_ANALYSIS.getPhaseNumber(), null, true, false )
+      def code = new AstNodeToScriptAdapter().compileToScript( model.groovyCode, CompilePhase.SEMANTIC_ANALYSIS.getPhaseNumber() )
       model.jsCode = code
     }
     catch( e ) {

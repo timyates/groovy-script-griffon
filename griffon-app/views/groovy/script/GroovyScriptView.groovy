@@ -14,6 +14,7 @@ application(title: 'groovy-script',
     def (inputArea,inputEditor) = new RSyntaxTextArea( 20, 60 ).with { ine ->
       syntaxEditingStyle = SyntaxConstants.SYNTAX_STYLE_GROOVY
       antiAliasingEnabled = true
+      text = model.groovyCode
       new RTextScrollPane( ine ).with {
         [it,ine]
       }
@@ -32,4 +33,5 @@ application(title: 'groovy-script',
     }
     bind( source:inputEditor, sourceProperty:'text', target:model, targetProperty:'groovyCode' )
     bind( source:model, sourceProperty:'jsCode', target:outputEditor, targetProperty:'text' )
+    controller.groovyChanged( null )
 }
